@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Ficha de Treino</title>
+    <link rel="stylesheet" href="ficha_treino.css">
+</head>
+
+<body onload="listar()">
+    <header>
+        <h1>🏋️ Sistema Academia</h1>
+        <p>Gestão de planos, alunos e fichas de treino</p>
+    </header>
+
+    <nav>
+        <a href="../menu/menu.html">Início</a>
+        <a href="../plano/plano.html">Planos</a>
+        <a href="../aluno/aluno.html">Alunos</a>
+        <a href="ficha_treino.html" class="ativo">Fichas de Treino</a>
+    </nav>
+
+    <main class="container-master">
+        <div class="conteudo-principal">
+            <section class="form-esquerda">
+                <h2>Ficha de Treino</h2>
+
+                <label for="inputId_aluno">Id do Aluno</label>
+                <div class="linha-id">
+                    <input type="text" name="inputId_aluno" id="inputId_aluno" placeholder="Ex: 1">
+                    <input type="button" value="Procure" id="btProcure" onclick="procure()">
+                    <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+                    <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+                    <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+                </div>
+                <p class="ajuda-campo">Busque pela Id do aluno — cada aluno tem apenas uma ficha.</p>
+
+                <label for="inputObjetivo">Objetivo</label>
+                <input type="text" name="inputObjetivo" id="inputObjetivo" placeholder="Ex: Hipertrofia, Emagrecimento">
+
+                <label for="selectNivel">Nível</label>
+                <select name="selectNivel" id="selectNivel">
+                    <option value="">Selecione o nível...</option>
+                    <option value="Iniciante">Iniciante</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
+                </select>
+
+                <div id="divAviso">Informe a Id do aluno e clique em Procure</div>
+
+                <div class="botoes-acao">
+                    <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+                    <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
+                </div>
+            </section>
+        </div>
+
+        <section class="lista-fichas">
+            <h3>Fichas Cadastradas</h3>
+            <div id="outputSaida">Carregando...</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Thiago da Silva Scomparin</p>
+        <p>Turma M32 — Segundo Ano</p>
+        <p>&copy; 2026</p>
+    </footer>
+
+    <script src="./ficha_treino.js"></script>
+</body>
+
+</html>

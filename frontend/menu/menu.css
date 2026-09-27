@@ -1,0 +1,234 @@
+/* ============================================================
+   Sistema Academia — tema "Ferro & Giz"
+   Paleta inspirada em anilhas de ferro fundido, giz de magnésio
+   e o quadro de horários de uma academia à noite.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #12171c;
+  --bg-alt: #171e24;
+  --surface: #1d242b;
+  --surface-alt: #222a32;
+  --surface-raised: #262f38;
+  --border: #2e3944;
+  --border-strong: #3c4854;
+  --text: #edf1f4;
+  --text-muted: #93a0ac;
+  --text-faint: #62707c;
+
+  --gold: #e3a83b;
+  --gold-dark: #c68a28;
+  --teal: #2fb8a6;
+  --teal-dark: #24967f;
+  --coral: #e4573d;
+  --coral-dark: #c23f2a;
+
+  --radius: 6px;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- Cabeçalho ---------- */
+header {
+  border-top: 4px solid var(--gold);
+  background: var(--bg-alt);
+  padding: 2.25rem clamp(1.25rem, 4vw, 3rem) 1.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  letter-spacing: .03em;
+  margin: 0 0 .4rem;
+  font-weight: 400;
+}
+
+header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .95rem;
+  max-width: 48ch;
+}
+
+/* ---------- Navegação ---------- */
+nav {
+  display: flex;
+  gap: .1rem;
+  background: var(--bg);
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: .95rem 1.15rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .92rem;
+  white-space: nowrap;
+  transition: color .15s ease;
+}
+
+nav a:hover { color: var(--text); }
+
+nav a.ativo { color: var(--gold); }
+
+nav a.ativo::after {
+  content: "";
+  position: absolute;
+  left: 1.15rem;
+  right: 1.15rem;
+  bottom: -1px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px 2px 0 0;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout principal ---------- */
+main.container-master {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 4vw, 3rem) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ---------- Boas-vindas ---------- */
+.boas-vindas {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+}
+
+.boas-vindas h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.1rem;
+  letter-spacing: .02em;
+  margin: 0 0 .5rem;
+}
+
+.boas-vindas p {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 62ch;
+}
+
+/* ---------- Cards de resumo ---------- */
+.cards-resumo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.cards-resumo .card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.cards-resumo .card:hover,
+.cards-resumo .card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -16px rgba(0, 0, 0, .55);
+  border-color: var(--gold);
+}
+
+.cards-resumo .card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.35rem;
+  letter-spacing: .02em;
+  margin: 0 0 .5rem;
+  color: var(--text);
+}
+
+.cards-resumo .card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+/* ---------- Info lateral ---------- */
+.info-lateral {
+  background: var(--surface-alt);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+}
+
+.info-lateral h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.2rem;
+  letter-spacing: .02em;
+  margin: 0 0 .5rem;
+  color: var(--text-muted);
+}
+
+.info-lateral p {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: .87rem;
+}
+
+/* ---------- Rodapé ---------- */
+footer {
+  text-align: center;
+  padding: 1.75rem 1rem 2.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: .8rem;
+}
+
+footer p { margin: .15rem 0; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  header h1 { font-size: 1.6rem; }
+  .boas-vindas { padding: 1.5rem; }
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
