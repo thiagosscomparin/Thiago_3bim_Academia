@@ -1,4 +1,6 @@
 
+
+
 -- ==============================================================================
 -- Projeto: Sistema de Academia
 -- Arquivo DDL + Carga Inicial (CREATE TABLE + INSERT INTO)
@@ -8,6 +10,9 @@
 -- ------------------------------------------------------------------------------
 -- Tabela independente: plano
 -- ------------------------------------------------------------------------------
+DROP TABLE IF EXISTS public.ficha_treino CASCADE;
+DROP TABLE IF EXISTS public.aluno CASCADE;
+DROP TABLE IF EXISTS public.plano CASCADE;
 CREATE TABLE public.plano (
     id_plano SERIAL PRIMARY KEY,
     nome_plano VARCHAR(100) NOT NULL,
@@ -59,16 +64,16 @@ INSERT INTO public.plano (nome_plano, valor_mensal) VALUES
 -- CARGA INICIAL - aluno (10 registros)
 -- ==============================================================================
 INSERT INTO public.aluno (nome_aluno, id_plano, foto_aluno) VALUES
-('Ana Beatriz Souza', 1, '1.png'),
-('Bruno Carvalho Lima', 2, '2.png'),
-('Camila Ferreira Dias', 3, '3.png'),
-('Diego Almeida Rocha', 4, '4.png'),
-('Eduarda Martins Silva', 5, '5.png'),
-('Felipe Nogueira Costa', 6, '6.png'),
-('Gabriela Ramos Pinto', 7, '7.png'),
-('Henrique Barbosa Melo', 8, '8.png'),
-('Isabela Cardoso Teixeira', 9, '9.png'),
-('João Pedro Azevedo', 10, '10.png');
+('Radames Juliano Halmeman', 1, '1.png'),
+('Diogo Heron Macowski', 2, '2.png'),
+('Humberto Takeda', 3, '3.png'),
+('André Luis Schwerz', 4, '4.png'),
+('Edson Hirata China', 5, '5.png'),
+('Flávia Reitz Aparecida', 6, '6.png'),
+('Fernando Cezar Goncalves Manso', 7, '7.png'),
+('Narci Nogueira da Silva', 8, '8.png'),
+('Claudete Cargnin', 9, '9.png'),
+('Devanir Pereira dos Santos Canovas', 10, '10.png');
 
 -- ==============================================================================
 -- CARGA INICIAL - ficha_treino (10 registros, um por aluno)
